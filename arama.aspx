@@ -18,8 +18,13 @@
                         <td>Þehir :</td>
                         <td><asp:DropDownList ID="ddCity" runat="server" Width="146px" AutoPostBack="True" OnSelectedIndexChanged="ddCity_SelectedIndexChanged" ></asp:DropDownList></td>
                         <td>Ýlçe :</td>
-                        <td><asp:DropDownList ID="ddVillage" runat="server" Width="146px"></asp:DropDownList></td>
-                        
+                        <td><asp:DropDownList ID="ddVillage" runat="server" Width="146px"></asp:DropDownList></td>         
+                    </tr>
+                    <tr>
+                        <td>Ders Kategori :</td>
+                        <td><asp:DropDownList ID="ddCourseCategory" runat="server" AutoPostBack="true" Width="146px" ></asp:DropDownList></td>
+                        <td>Ders Konu :</td>
+                        <td><asp:DropDownList ID="ddCourseTopic" runat="server" Width="146px" ></asp:DropDownList></td>
                     </tr>
                 </table>
             </ContentTemplate>    
