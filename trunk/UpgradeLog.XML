@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="AjaxControlToolkitWebSite1">
+</Property><Property Name="Solution File" Value="D:\Documents and Settings\soyhan\Belgelerim\Visual Studio 2008\WebSites\ozelDers\AjaxControlToolkitWebSite1.sln">
+</Property><Property Name="User Options File" Value="D:\Documents and Settings\soyhan\Belgelerim\Visual Studio 2008\WebSites\ozelDers\AjaxControlToolkitWebSite1.suo">
+</Property><Property Name="Date" Value="22 Eylül 2008 Pazartesi">
+</Property><Property Name="Time" Value="23:49">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="AjaxControlToolkitWebSite1.sln" Description="File successfully backed up as D:\Documents and Settings\soyhan\Belgelerim\Visual Studio 2008\WebSites\ozelDers\Backup\AjaxControlToolkitWebSite1.sln">
+</Event><Event ErrorLevel="0" Project="" Source="AjaxControlToolkitWebSite1.suo" Description="File successfully backed up as D:\Documents and Settings\soyhan\Belgelerim\Visual Studio 2008\WebSites\ozelDers\Backup\AjaxControlToolkitWebSite1.suo">
+</Event><Event ErrorLevel="1" Project="" Source="..\AjaxControlToolkitWebSite1\" Description="Warning: The project file is being backed up to a relative path that differs from the original solution relative path.  The difference in folder hierarchy may create problems in opening or building the backed up solution and project.">
+</Event><Event ErrorLevel="0" Project="" Source="AjaxControlToolkitWebSite1.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="AjaxControlToolkitWebSite1.sln" Description="Converted">
+</Event></UpgradeLog>
