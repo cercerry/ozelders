@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\...\AjaxControlToolkitWebSite1\", "..\..\WebSites\AjaxControlToolkitWebSite1\", "{DB2F7E82-D166-4FAB-96AD-0B60FF418D0B}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/AjaxControlToolkitWebSite1"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\WebSites\AjaxControlToolkitWebSite1\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\AjaxControlToolkitWebSite1\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/AjaxControlToolkitWebSite1"
+		Release.AspNetCompiler.PhysicalPath = "..\..\WebSites\AjaxControlToolkitWebSite1\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\AjaxControlToolkitWebSite1\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "4845"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB2F7E82-D166-4FAB-96AD-0B60FF418D0B}.Debug|.NET.ActiveCfg = Debug|.NET
+		{DB2F7E82-D166-4FAB-96AD-0B60FF418D0B}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
