@@ -5,22 +5,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
        
     <div> 
+        <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+        </ajaxToolkit:ToolkitScriptManager>
     </div>
-     <div id="about" class="post" runat="server">
+     <div id="about" class="post">
 				<h1 class="title">Yeni Kullanýcý Kayýt</h1>
-			</div>
+    </div>
 			<!-- end #about -->
 			
 			<div class="post">
 				<div class="entry">
-				    <ajax:UpdatePanel ID="updatePanel" runat="server">
-				    <ContentTemplate>
-					<table cellspacing="15">
+					<table cellspacing="20">
 					    <tr >
 					        <td>*Kullanýcý Adý : </td> 
 					        <td style="width: 154px"><asp:TextBox ID="txtUserName" runat="server"> </asp:TextBox></td>
 					        <td> <asp:RequiredFieldValidator ID="userNameValidator" runat="server" ErrorMessage="Kullanýcý Adýný Giriniz.." ControlToValidate="txtUserName" ValidationGroup="signUp"></asp:RequiredFieldValidator> </td>
-					        <td> <asp:CustomValidator ID="userNameCustomValdator" runat="server" ControlToValidate="txtUserName"  ErrorMessage="Giriðiniz kullanýcý kullanýlýyor ya da geçersiz" ValidationGroup="signUp" OnServerValidate="userNameValidation"></asp:CustomValidator></td>
 					    </tr>
 					    <tr>
 					        <td>*Þifre : </td> 
@@ -48,7 +47,7 @@
 					        <td style="width: 154px"><asp:TextBox ID="txtBirthdate" runat="server" > </asp:TextBox></td>
 					        <td> <asp:RequiredFieldValidator ID="birthdateValidator" runat="server" ErrorMessage="Doðum Tarihinizi giriniz.." ControlToValidate="txtBirthdate" ValidationGroup="signUp" ></asp:RequiredFieldValidator></td>
 					        <td><asp:RegularExpressionValidator ID="birthdateRegValidator" runat="server" ErrorMessage="Geçerli bir tarih giriniz.." ControlToValidate="txtBirthdate" ValidationGroup="signUp" ValidationExpression="\d{1,2}\.\d{1,2}\.\d{4}" ></asp:RegularExpressionValidator></td>
-					        <td><ajaxToolkit:CalendarExtender ID="ajaxCalendarExtender" runat="server" TargetControlID="txtBirthdate" PopupPosition="Right" CssClass="MyCalendar" Format="dd.MM.yyyy"></ajaxToolkit:CalendarExtender></td>
+					        <td>&nbsp;</td>
 					    </tr>
 					    <tr>
 					        <td>*Cinsiyet :</td>
@@ -72,17 +71,14 @@
 					    </tr>
 					    <tr>
 					        <td style="height: 54px">Adres : </td> 
-					        <td style="width: 154px; height: 54px;"><asp:TextBox ID="txtAdress" runat="server" TextMode="MultiLine" Rows="3"> </asp:TextBox></td>
+					        <td style="width: 154px; height: 54px;">
+					        <asp:TextBox ID="txtAdress" runat="server" TextMode="MultiLine" Rows="3"> </asp:TextBox></td>
 					    </tr>
 					    <tr>
 					        <td> <asp:Button ID="btnSignUp" runat="server" Text="Kayýt ol" ValidationGroup="signUp" OnClick="btnSignUp_Click" /></td>
 					    </tr>
-					    
 					</table>
-					</ContentTemplate>
-					</ajax:UpdatePanel>
 				</div>
 			</div>
-            
 </asp:Content>
 

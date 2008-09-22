@@ -2,11 +2,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
 <style type="text/css" media="screen">
 /*
 Design by NodeThirtyThree <http://www.nodethirtythree.com>
@@ -27,6 +22,7 @@ body {
 }
 
 h1, h2, h3 {
+	text-transform: lowercase;
 	color: #292929;
 }
 
@@ -36,7 +32,7 @@ h1 {
 }
 
 h2 {
-	font-size: 20px;
+	font-size: 24px;
 	color: #292929;
 }
 
@@ -283,6 +279,10 @@ hr {
 }
 
 </style>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
 <link href="calendar.css" rel="Stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Stylized by NodeThirtyThree + Free CSS Templates</title>
@@ -303,8 +303,8 @@ hr {
 
 <div id="menu">
 	<ul>
-		<li class="active"><a href="default.aspx" accesskey="1" title="">AnaSayfa</a></li>
-		<li class="active"><a href="arama.aspx" accesskey="2" title="">Detaylı Arama</a></li>
+		<li class="active"><a href="#" accesskey="1" title="">Homepage</a></li>
+		<li class="active"><a href="#" accesskey="2" title="">Products</a></li>
 		<li class="active"><a href="#" accesskey="3" title="">Services</a></li>
 		<li class="active"><a href="#" accesskey="4" title="">About Us</a></li>
 		<li class="active"><a href="#" accesskey="5" title="">Contact Us</a></li>
@@ -314,11 +314,8 @@ hr {
 <div id="bg">
 	<div id="page">
 		<div id="content">
-		
 		    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
-		    
-		    
-		    <div id="about" class="post">
+			<div id="about" class="post">
 				<h1 class="title">Yeni Kullanıcı Kayıt</h1>
 			</div>
 			<!-- end #about -->
@@ -338,80 +335,18 @@ hr {
 		</div>
 		<!-- end #content -->
 		<div id="sidebar">
-		    <div>
-		        <ajaxToolkit:ToolkitScriptManager ID="toolkitScriptManager" runat="server"></ajaxToolkit:ToolkitScriptManager>
-		    </div>
 		    <!-- start #login -->
-		    <ajax:UpdatePanel ID="updatePanelLogin" runat="server">
-		    <ContentTemplate>
 		    <div id="login" class="box">
 		        <h2 class="title">Üye Girişi </h2>  
 		        <div class="content">
-		            <table>
-		                <tr>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                Kullanici adı:
-		                            </li>
-		                        </ul>
-		                    </td>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                <asp:TextBox ID="txtUserName" runat="server"  Width="101px"></asp:TextBox>             
-		                            </li>
-		                        </ul>
-		                    </td>
-		                </tr>
-		                <tr>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                Şifre:
-		                            </li>
-		                        </ul>
-		                    </td>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                <asp:TextBox ID="txtPassword" runat="server"  Width="102px" TextMode="Password"></asp:TextBox>                
-		                            </li>
-		                        </ul>
-		                    </td>
-		                </tr>
-		                <tr>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                <asp:Button ID="btnSignIn" Text="Giriş" runat="server" Width="62px" 
-                                            onclick="btnSignIn_Click" />                
-		                            </li>
-		                        </ul>
-		                    </td>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                <asp:Label ID="hataLabel" runat="server" ForeColor="Red"></asp:Label>
-		                            </li>
-		                        </ul>
-		                    </td>
-		                </tr>
-		                <tr>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                <a href="kayit.aspx">Yeni Üye</a>           
-		                            </li>
-		                        </ul>
-		                    </td>
-		                </tr>
-		            </table>
+		            <ul>
+		                <li><strong>KullanıcıAdı :&nbsp; </strong> <asp:TextBox ID="txtUserName" runat="server"  Width="101px"></asp:TextBox> </li>
+		                <li><strong>Şifre&nbsp; : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </strong><asp:TextBox ID="txtPassword" runat="server"  Width="102px" TextMode="Password"></asp:TextBox></li>
+                        <li><asp:Button ID="btnSignIn" Text="Giriş" runat="server" Width="62px" /></li>
+                        <li> <a href="kayit.aspx">Yeni Üye</a></li>	            
+		            </ul>
 		        </div>
 		    </div>        
-		    </ContentTemplate>
-
-		    </ajax:UpdatePanel>
             <!-- end #login -->
 			<div id="useful-links" class="box">
 				<h2 class="title">lorem ipsum </h2>
