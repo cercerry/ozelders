@@ -1,0 +1,429 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="kullaniciMasterPage.master.cs" Inherits="kullaniciMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<style type="text/css" media="screen">
+/*
+Design by NodeThirtyThree <http://www.nodethirtythree.com>
+Published by Free CSS Templates <http://www.freecsstemplates.org/>
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #FFFFFF url(images/img01.gif) repeat-x;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #4A5157;
+}
+
+h1, h2, h3 {
+	color: #292929;
+}
+
+h1 {
+	letter-spacing: -1px;
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 20px;
+	color: #292929;
+}
+
+h3 {
+	font-size: 13px;
+	color: #292929;
+}
+
+p, ul, ol {
+	margin-bottom: 2em;
+	text-align: justify;
+	line-height: 200%;
+}
+
+p {
+}
+
+ul {
+}
+
+ol {
+}
+
+a {
+	color: #FF0000;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+img {
+	border: none;
+}
+
+img.left {
+}
+
+img.right {
+}
+
+.tn img {
+	border: 8px solid #F5F5F5;
+}
+
+hr {
+	display: none;
+}
+
+/* Logo */
+
+#logo {
+	width: 874px;
+	height: 147px;
+	margin: 0 auto;
+}
+
+#logo h1 {
+	float: left;
+	padding: 70px 37px 0 0;
+	height: 54px;
+	background: url(images/img02.gif) no-repeat 100% 63px;
+	font-size: 38px;
+	font-weight: normal;
+	letter-spacing: -2px;
+}
+
+#logo h2 {
+	float: right;
+	padding: 98px 0 0 0;
+	text-transform: lowercase;
+	font-weight: normal;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+
+#logo a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+/* Menu */
+
+#menu {
+	width: 919px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 10px 0 0 0;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	display: inline;
+}
+
+#menu a {
+	display: block;
+	float: left;
+	height: 25px;
+	margin: 0 10px;
+	padding: 5px 20px 0 20px;
+	text-transform: lowercase;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#menu a:hover {
+	text-decoration: underline;
+}
+
+#menu .active a {
+	background: #EC0000 url(images/img03.gif) repeat-x left bottom;
+}
+
+/* Page */
+
+#bg {
+	background: url(images/img04.gif) no-repeat center top;
+}
+
+#page {
+	width: 918px;
+	margin: 0 auto;
+}
+
+/* Content */
+
+#content {
+	float: left;
+	width: 625px;
+	padding: 0 0 0 24px;
+}
+
+#content h1 {
+	margin: 45px 0 20px 0;
+	padding-left: 33px;
+	background: url(images/img07.gif) no-repeat left center;
+}
+
+#content .content {
+	padding-left: 32px;
+}
+
+/* Posts */
+
+
+
+.post h1.title {
+	margin: 45px 0 20px 0;
+	padding-left: 33px;
+	background: url(images/img07.gif) no-repeat left center;
+}
+
+.post h2.title {
+	margin: 40px 0 25px 0;
+	padding-left: 33px;
+	background: url(images/img07.gif) no-repeat left center;
+}
+
+.post .title a {
+	text-decoration: none;
+	color: #292929;
+}
+
+.post .entry {
+	padding-left: 32px;
+}
+
+.post ul, .post ol .post table{
+	margin-left: 3em;
+}
+
+.post ul {
+	list-style-type: square;
+}
+
+.post ol {
+	list-style-type: decimal;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 214px;
+	padding: 0 1px 0 0;
+}
+
+#sidebar a {
+	color: #4A5157;
+}
+
+.box {
+}
+
+.box .title {
+	height: 27px;
+	padding: 6px 0 0 34px;
+	background: #C80000 url(images/img05.gif) no-repeat;
+	text-transform: lowercase;
+	font-size: 17px;
+	color: #FFFFFF;
+}
+
+.box .content {
+    
+	padding: 10px;
+	background: url(images/img06.gif) repeat-x;
+}
+
+.box ul {
+    
+	list-style: none;
+	line-height: normal;
+}
+
+.box ul li {
+	margin-bottom: 13px;
+	font-size: 12px;
+}
+
+.box small {
+	font-size: 10px;
+	color: #808C96;
+}
+
+/* Footer */
+
+#footer {
+	padding: 35px 0;
+	background: url(images/img08.gif) no-repeat center top;
+	font-size: 12px;
+}
+
+#footer p {
+	text-align: center;
+}
+
+</style>
+<link href="calendar.css" rel="Stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Stylized by NodeThirtyThree + Free CSS Templates</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="robots" content="all" />
+
+</head>
+
+<body>
+<form id="form1" runat="server">
+<div id="logo">
+	<h1><a href="http://mahmutkafkas.blogspot.com">Ozel-Ders.net</a></h1>
+	<h2>Özel derscilikte devrim </h2>
+
+</div>
+
+
+<div id="menu">
+	<ul>
+		<li class="active"><a href="default.aspx" accesskey="1" title="">AnaSayfa</a></li>
+		<li class="active"><a href="arama.aspx" accesskey="2" title="">Detaylı Arama</a></li>
+		<li class="active"><a href="#" accesskey="3" title="">Services</a></li>
+		<li class="active"><a href="#" accesskey="4" title="">About Us</a></li>
+		<li class="active"><a href="#" accesskey="5" title="">Contact Us</a></li>
+	</ul>
+	<hr />
+</div>
+<div id="bg">
+	<div id="page">
+		<div id="content">
+		
+		    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+		    
+		    
+		    <div id="about" class="post">
+				<h1 class="title">Yeni Kullanıcı Kayıt</h1>
+			</div>
+			<!-- end #about -->
+			
+			<div class="post">
+				<div class="entry">
+					<p>Nulla sit amet enim. Nunc euismod, felis et adipiscing volutpat, mauris ligula lacinia lacus, ac accumsan pede lacus sed nulla. Nunc euismod, felis et adipiscing volutpat, mauris ligula lacinia lacus, ac accumsan pede lacus sed nulla. Nunc euismod, felis et adipiscing volutpat, mauris ligula lacinia lacus, ac accumsan pede lacus sed nulla. Nunc euismod, felis et adipiscing volutpat, mauris ligula lacinia lacus, ac accumsan pede lacus sed nulla.</p>
+					<ul>
+						<li><a href="#">Pellentesque quis elit non lectus gravida blandit.</a></li>
+						<li><a href="#">Lorem ipsum dolor sit amet, consectetuer elit.</a></li>
+						<li><a href="#">Phasellus nec erat sit amet nibh pellentesque congue.</a></li>
+						<li><a href="#">Cras vitae metus aliquam risus pellentesque pharetra.</a></li>
+					</ul>
+				</div>
+			</div>
+			</asp:contentplaceholder>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+		    <!-- start #login -->
+		    <ajax:UpdatePanel ID="updatePanelLogin" runat="server">
+		    <ContentTemplate>
+		    <div id="login" class="box">
+		        <h2 class="title">Kullanıcı</h2>  
+		        <div class="content">
+		            <table>
+		                <tr>
+		                    <td>
+		                        <ul>
+		                            <li class="entry">
+		                                Kullanici adı:
+		                            </li>
+		                        </ul>
+		                    </td>
+		                    <td>
+		                        <ul>
+		                            <li>
+		                                <asp:Label ID="lblKullaniciAdSoyad" runat="server"></asp:Label>
+		                            </li>
+		                        </ul>
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        <ul>
+		                            <li>
+		                                Bağlantı zamanı:
+		                            </li>
+		                        </ul>
+		                    </td>
+		                    <td>
+		                        <ul>
+		                            <li>
+		                                <asp:Label ID="lblConnectionTime" runat="server"></asp:Label>
+		                            </li>
+		                        </ul>
+		                    </td>
+		                </tr>
+		             </table>
+		        </div>
+		    </div>        
+		    </ContentTemplate>
+
+		    </ajax:UpdatePanel>
+            <!-- end #login -->
+			<div id="useful-links" class="box">
+				<h2 class="title">lorem ipsum </h2>
+				<div class="content">
+					<ul>
+						<li><a href="#"><strong>Blandit tempor etiamstrong></a><br />
+							<small>Lorem ipsum dolor</small></li>
+						<li><a href="#"><strong>Blandit tempor volutpat</strong></a><br />
+							<small>Lorem ipsum dolor</small></li>
+						<li><a href="#"><strong>Blandit tempor sed</strong></a><br />
+							<small>Lorem ipsum dolor</small></li>
+						<li><a href="#"><strong>Blandit tempor dolore</strong></a><br />
+							<small>Lorem ipsum dolor</small></li>
+						<li><a href="#"><strong>Blandit tempor etiam</strong></a><br />
+							<small>Lorem ipsum dolor</small></li>
+					</ul>
+				</div>
+			</div>
+			<!-- end #useful-links -->
+			<div id="sponsors" class="box">
+				<h2 class="title">Fusce ultrices</h2>
+				<div class="content">
+					<ul>
+						<li><a href="#">Quisque vehicula arcu</a></li>
+						<li><a href="#">Integer id lectus sed </a></li>
+						<li><a href="#">Fusce hendrerit felis</a></li>
+						<li><a href="#">Metus condimentum sed</a></li>
+						<li><a href="#">Fusce hendrerit felis </a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- end #sponsors -->
+		</div>
+		<!-- end #sidebar --><div style="clear: both; height: 20px;">&nbsp;</div>
+	</div>
+	<!-- end #page --></div>
+<!-- end #bg --><div id="footer">
+	<hr />
+	<p>	Copyright (c) 2007 Stylized. All rights reserved. Designed by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a> for <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+</div>
+
+<div style="font-size: 0.8em; text-align: center; margin-top: 1.0em; margin-bottom: 1.0em;">
+Design downloaded from <a href="http://www.freewebtemplates.com/">Free Templates</a> - your source for free web templates
+</div>
+</form>
+</body>
+</html>

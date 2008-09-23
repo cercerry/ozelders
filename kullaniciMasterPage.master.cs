@@ -11,7 +11,7 @@ using System.Web.UI.HtmlControls;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
-public partial class kullanici : System.Web.UI.Page
+public partial class kullaniciMasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,16 +21,14 @@ public partial class kullanici : System.Web.UI.Page
         try
         {
             connection.Open();
-            SqlCommand cmd = new SqlCommand("SELECT username,gender FROM  kayit", connection);
+            SqlCommand cmd = new SqlCommand("SELECT userName,name,surname FROM  kayit", connection);
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 if (reader["username"].ToString() == Request.QueryString["isim"])
                 {
-                    if (reader["gender"].ToString() == "0")
-                        imageBayanResim.Visible = true;
-                    if (reader["gender"].ToString() == "1")
-                        imageBayResim.Visible = true;
+                    lblKullaniciAdSoyad.Text = reader["name"].ToString() + " " + reader["surname"].ToString();
+                    lblConnectionTime.Text = DateTime.Now.ToShortTimeString();
                 }
             }
         }
