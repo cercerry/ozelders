@@ -29,7 +29,7 @@ public partial class kayit2 : System.Web.UI.Page
 
     private void InsertNewRecordToDatabase()
     {
-        string connectionString = System.Configuration.ConfigurationSettings.AppSettings["DatabaseConnectionString"].ToString();
+        string connectionString = System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
         SqlConnection connection = new SqlConnection(connectionString);
 
 
