@@ -17,21 +17,36 @@ public partial class arama : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
-        {
-            FillCityDDList();
+        {   
+            FillDDCityList();
+            FillDDCourseCategory();
+            ddVillage.Items.Add("Ýlçe Seçiniz");
+            ddCourseTopic.Items.Add("Tüm Konular");
         }
     }
-    private void FillCityDDList()
+    private void FillDDCityList()
     {
         
         string connectionString=System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
         string command="SELECT CityName FROM Sehirler";
         SqlDataSource sqlDataSource = new SqlDataSource("System.Data.SqlClient",connectionString, command);
-        ddCity.DataTextField = "CityName";
         ddCity.DataValueField = "CityName";
+        ddCity.DataTextField = "CityName";
         ddCity.DataSource = sqlDataSource;
         ddCity.DataBind();
     }
+
+    private void FillDDCourseCategory()
+    {
+        string connectionString = System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
+        string command = "SELECT CategoryName FROM DersKategori";
+        SqlDataSource sqlDataSource = new SqlDataSource("System.Data.SqlClient", connectionString, command);
+        ddCourseCategory.DataValueField = "CategoryName";
+        ddCourseCategory.DataTextField = "CategoryName";
+        ddCourseCategory.DataSource = sqlDataSource;
+        ddCourseCategory.DataBind();
+    }
+
     protected void ddCity_SelectedIndexChanged(object sender, EventArgs e)
     {
         ddVillage.Items.Clear();
@@ -54,6 +69,36 @@ public partial class arama : System.Web.UI.Page
             if (!hasVillage)
             {
                 ddVillage.Items.Add("Merkez");
+            }
+        }
+        finally
+        {
+            if (conn != null)
+            {
+                conn.Close();
+            }
+            if (reader != null)
+            {
+                reader.Close();
+            }
+        }
+    }
+    protected void ddCourseCategory_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ddCourseTopic.Items.Clear();
+        string connectionString = System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
+        SqlConnection conn = new SqlConnection(connectionString);
+        SqlDataReader reader = null;
+
+        try
+        {
+            conn.Open();
+            string command = "SELECT TopicName FROM DersKonu as DKonu INNER JOIN DersKategori as DKate ON DKonu.CategoryId=DKate.CategoryId WHERE CategoryName='" + ddCourseCategory.SelectedValue + "'";
+            SqlCommand cmd = new SqlCommand(command, conn);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                ddCourseTopic.Items.Add(reader[0].ToString());
             }
         }
         finally

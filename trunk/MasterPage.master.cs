@@ -27,14 +27,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
         try
         {
             connection.Open();
-            SqlCommand cmd = new SqlCommand("SELECT userName,password FROM  kayit", connection);
+            SqlCommand cmd = new SqlCommand("SELECT userId,userName,password FROM  Kayit", connection);
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 if (reader["userName"].ToString() == txtUserName.Text)
                 {
                     if (reader["password"].ToString() == txtPassword.Text)
-                        Response.Redirect("kullanici.aspx?isim=" + txtUserName.Text);
+                        Response.Redirect("kullanici.aspx?kid=" + reader["userId"].ToString());
                     else
                         sifreFlag = true;
                 }
@@ -56,7 +56,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         if (sifreFlag)
             hataLabel.Text = "Hatalý þifre!";
         if (kullaniciFlag)
-            hataLabel.Text = "Kullanici bulunamadý!";
+            hataLabel.Text = "Kullanýcý bulunamadý!";
 
     }
 }

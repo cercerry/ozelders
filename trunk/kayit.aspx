@@ -5,6 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
        
     <div> 
+    <ajaxToolkit:ToolkitScriptManager ID="toolkitScriptManager" runat="server" EnableScriptGlobalization="true"></ajaxToolkit:ToolkitScriptManager>
     </div>
      <div id="about" class="post" runat="server">
 				<h1 class="title">Yeni Kullanýcý Kayýt</h1>

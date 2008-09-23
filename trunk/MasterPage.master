@@ -338,14 +338,12 @@ hr {
 		</div>
 		<!-- end #content -->
 		<div id="sidebar">
-		    <div>
-		        <ajaxToolkit:ToolkitScriptManager ID="toolkitScriptManager" runat="server"></ajaxToolkit:ToolkitScriptManager>
-		    </div>
+		    
 		    <!-- start #login -->
 		    <ajax:UpdatePanel ID="updatePanelLogin" runat="server">
 		    <ContentTemplate>
 		    <div id="login" class="box">
-		        <h2 class="title">Üye Girişi </h2>  
+		        <h2 class="title">Öğretmen Girişi </h2>  
 		        <div class="content">
 		            <table>
 		                <tr>
@@ -401,7 +399,7 @@ hr {
 		                    <td>
 		                        <ul>
 		                            <li>
-		                                <a href="kayit.aspx">Yeni Üye</a>           
+		                                <a href="kayit.aspx">Yeni Öğretmen</a>           
 		                            </li>
 		                        </ul>
 		                    </td>
