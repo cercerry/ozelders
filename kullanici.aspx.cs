@@ -15,22 +15,29 @@ public partial class kullanici : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if ((PreviousPage != null) && (PreviousPage.IsCrossPagePostBack))
+        {
+            TextBox tmpUserName = (TextBox)PreviousPage.Master.FindControl("txtUserName");
+            hiddenUserName.Value = tmpUserName.Text; ; 
+        }
+        
         string connectionString = System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
         SqlConnection connection = new SqlConnection(connectionString);
         SqlDataReader reader = null;
         try
         {
             connection.Open();
-            SqlCommand cmd = new SqlCommand("SELECT username,gender FROM  kayit", connection);
+            SqlCommand cmd = new SqlCommand("SELECT username,gender FROM  kayit", connection); // düzeltilecek
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                if (reader["username"].ToString() == Request.QueryString["isim"])
+                if (reader["username"].ToString() == hiddenUserName.Value)
                 {
-                    if (reader["gender"].ToString() == "0")
-                        imageBayanResim.Visible = true;
-                    if (reader["gender"].ToString() == "1")
-                        imageBayResim.Visible = true;
+                    if (reader["gender"].ToString() == "2")     ////////
+                        imageBayanResim.Visible = true;         // Image
+                    if (reader["gender"].ToString() == "1")     //      
+                        imageBayResim.Visible = true;           ////////    
+
                 }
             }
         }

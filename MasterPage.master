@@ -216,6 +216,10 @@ hr {
 	margin-left: 3em;
 }
 
+.post th {
+    background: #EC0000 url(images/img03.gif) repeat-x left bottom;
+}
+
 .post ul {
 	list-style-type: square;
 }
@@ -282,6 +286,21 @@ hr {
 	text-align: center;
 }
 
+.popupMenu {
+	position:absolute;
+	visibility:hidden;
+	background-color:#F5F7F8;
+	opacity:.9;
+	filter: alpha(opacity=90);
+}
+
+.popupHover {
+	background-image:url(images/header-opened.png);
+	background-repeat:repeat-x;
+	background-position:left top;
+	background-color:#F5F7F8;
+}
+
 </style>
 <link href="calendar.css" rel="Stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -303,8 +322,8 @@ hr {
 
 <div id="menu">
 	<ul>
-		<li class="active"><a href="default.aspx" accesskey="1" title="">AnaSayfa</a></li>
-		<li class="active"><a href="arama.aspx" accesskey="2" title="">Detaylı Arama</a></li>
+		<li class="active"><asp:LinkButton ID="lnkBtnDefault" runat="server" AccessKey="1" PostBackUrl="Default.aspx">AnaSayfa</asp:LinkButton></li>
+		<li class="active"><asp:LinkButton ID="lnkBtnSearch" runat="server" AccessKey="2" PostBackUrl="arama.aspx">Detaylı Arama</asp:LinkButton></li>
 		<li class="active"><a href="#" accesskey="3" title="">Services</a></li>
 		<li class="active"><a href="#" accesskey="4" title="">About Us</a></li>
 		<li class="active"><a href="#" accesskey="5" title="">Contact Us</a></li>
@@ -383,7 +402,7 @@ hr {
 		                        <ul>
 		                            <li>
 		                                <asp:Button ID="btnSignIn" Text="Giriş" runat="server" Width="62px" 
-                                            onclick="btnSignIn_Click" />                
+                                            onclick="btnSignIn_Click" PostBackUrl="~/kullanici.aspx"/>                
 		                            </li>
 		                        </ul>
 		                    </td>
