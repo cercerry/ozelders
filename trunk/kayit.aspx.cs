@@ -44,7 +44,16 @@ public partial class kayit : System.Web.UI.Page
                 sb.Append("'" + txtEmail.Text + "',");
                 sb.Append("'" + txtPhoneNo.Text + "',");
                 sb.Append("'" + txtAdress.Text + "',");
-                sb.Append("'" + ddGender.SelectedIndex + "')");
+                sb.Append("'" + ddGender.SelectedIndex + "',");
+
+                if (checkBoxIsSurname.Checked == true)
+                    sb.Append("'1',");
+                else
+                    sb.Append("'0',");
+                if (checkBoxIsPhone.Checked == true)
+                    sb.Append("'1')");
+                else
+                    sb.Append("'0')");
 
                 SqlCommand cmd = new SqlCommand(sb.ToString(), connection);
 

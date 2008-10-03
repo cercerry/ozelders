@@ -3,7 +3,7 @@
 
 <div>
     <ajaxToolkit:ToolkitScriptManager ID="toolkitScriptManager" runat="server" EnableScriptGlobalization="true"></ajaxToolkit:ToolkitScriptManager>
-    
+    <asp:HiddenField ID="hiddenUserName" runat="server" Visible="false" />
 </div> 
 <ajax:UpdatePanel ID="updatePanelKullanici" runat="server">
     <ContentTemplate>
@@ -36,7 +36,7 @@
                             </td>
                          </tr>
                        </table>       
-                </asp:Panel>
+                      </asp:Panel>
                 </td>
                 </tr>
             </table>

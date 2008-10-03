@@ -15,21 +15,32 @@ public partial class kullaniciMasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if ((Page.PreviousPage != null) && (Page.PreviousPage.IsCrossPagePostBack))
+        {
+            TextBox tmpUserName = (TextBox)Page.PreviousPage.Master.FindControl("txtUserName");
+            if (tmpUserName != null)
+            {
+                hiddenUserName.Value = tmpUserName.Text;
+            }
+            else
+            {
+                hiddenUserName = (HiddenField)Page.PreviousPage.Master.FindControl("hiddenUserName");   
+            }
+            
+        }
+
         string connectionString = System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
         SqlConnection connection = new SqlConnection(connectionString);
         SqlDataReader reader = null;
         try
         {
             connection.Open();
-            SqlCommand cmd = new SqlCommand("SELECT userName,name,surname FROM  kayit", connection);
+            SqlCommand cmd = new SqlCommand("SELECT name,surname FROM  kayit WHERE userName='"+hiddenUserName.Value+"'", connection);
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                if (reader["username"].ToString() == Request.QueryString["isim"])
-                {
-                    lblKullaniciAdSoyad.Text = reader["name"].ToString() + " " + reader["surname"].ToString();
-                    lblConnectionTime.Text = DateTime.Now.ToShortTimeString();
-                }
+                lblKullaniciAdSoyad.Text = reader["name"].ToString() + " " + reader["surname"].ToString();
+                lblConnectionTime.Text = DateTime.Now.ToShortTimeString();       
             }
         }
         finally

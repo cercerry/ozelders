@@ -300,8 +300,8 @@ hr {
 
 <div id="menu">
 	<ul>
-		<li class="active"><a href="default.aspx" accesskey="1" title="">AnaSayfa</a></li>
-		<li class="active"><a href="arama.aspx" accesskey="2" title="">Detaylı Arama</a></li>
+		<li class="active"><asp:LinkButton ID="lnkBtnDefault" runat="server" AccessKey="1" PostBackUrl="Default.aspx">AnaSayfa</asp:LinkButton></li>
+		<li class="active"><asp:LinkButton ID="lnkBtnSearch" runat="server" AccessKey="2" PostBackUrl="arama.aspx">Detaylı Arama</asp:LinkButton></li>
 		<li class="active"><a href="#" accesskey="3" title="">Services</a></li>
 		<li class="active"><a href="#" accesskey="4" title="">About Us</a></li>
 		<li class="active"><a href="#" accesskey="5" title="">Contact Us</a></li>
@@ -336,6 +336,7 @@ hr {
 		<!-- end #content -->
 		<div id="sidebar">
 		    <!-- start #login -->
+		    <asp:HiddenField ID="hiddenUserName" runat="server" Visible="false" />
 		    <ajax:UpdatePanel ID="updatePanelLogin" runat="server">
 		    <ContentTemplate>
 		    <div id="login" class="box">
@@ -385,7 +386,7 @@ hr {
 				<h2 class="title">lorem ipsum </h2>
 				<div class="content">
 					<ul>
-						<li><a href="#"><strong>Blandit tempor etiamstrong></a><br />
+						<li><a href="#"><strong>Blandit tempor etiamstrong</strong></a><br />
 							<small>Lorem ipsum dolor</small></li>
 						<li><a href="#"><strong>Blandit tempor volutpat</strong></a><br />
 							<small>Lorem ipsum dolor</small></li>

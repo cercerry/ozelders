@@ -14,8 +14,13 @@ using System.Data.SqlClient;
 public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
-
+    {   
+        // password de enter a basýnca butona yönlendir.. 
+        txtPassword.Attributes.Add("onkeydown", "if(event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('" + btnSignIn.UniqueID + "').click();return false;}} else {return true}; ");
+        
+        Page.Form.DefaultFocus = txtUserName.ClientID; // defaultFocus in master page
+     //   if(Page.IsPostBack)
+       //     btnSignIn.PostBackUrl = "kullanici.aspx";
     }
     protected void btnSignIn_Click(object sender, EventArgs e)
     {
@@ -33,10 +38,18 @@ public partial class MasterPage : System.Web.UI.MasterPage
             {
                 if (reader["userName"].ToString() == txtUserName.Text)
                 {
+                    kullaniciFlag = false;
                     if (reader["password"].ToString() == txtPassword.Text)
-                        Response.Redirect("kullanici.aspx?kid=" + reader["userId"].ToString());
+                    {
+                        break;
+                    }
+                    // Response.Redirect("kullanici.aspx?isim=" + reader["userName"].ToString());
                     else
+                    {
+                        
                         sifreFlag = true;
+                        break;
+                    }
                 }
                 else
                     kullaniciFlag = true;
@@ -44,6 +57,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         finally
         {
+         //   btnSignIn.PostBackUrl = "";
             if (connection != null)
             {
                 connection.Close();
@@ -54,9 +68,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
             }
         }
         if (sifreFlag)
-            hataLabel.Text = "Hatalý þifre!";
+        {
+            hataLabel.Text = "Hatalý þifre!";         
+        }
         if (kullaniciFlag)
+        {
             hataLabel.Text = "Kullanýcý bulunamadý!";
-
+        }
     }
 }
