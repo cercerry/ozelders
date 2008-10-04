@@ -12,6 +12,10 @@
 	<div class="entry">
 	    <ajax:UpdatePanel ID="updatePanel" runat="server" >
 	        <ContentTemplate>
+	        <div>
+	            <asp:LinkButton ID="searchCriteriaLink" runat="server" Visible="false" Text="Arama Kriterleri" ForeColor="red" OnClick="searchCriteriaLink_Clicked"></asp:LinkButton>
+	        </div>
+	        <asp:Panel ID="searchCriteriaPanel" runat="server" >
 	            <table cellspacing="15" style="width: 577px">
                     <tr>
                         <td><asp:CustomValidator ID="ddCityValidator" runat="server" ControlToValidate="ddCity" ValidationGroup="Search" OnServerValidate="ddCityControl" ErrorMessage="Þehir Seçiniz" Text="*"></asp:CustomValidator></td>
@@ -66,8 +70,10 @@
                 <table>
                     <tr>
                         <td><asp:ValidationSummary ID="validationSummary" runat="server" ValidationGroup="Search" HeaderText="(*) ile gösterilen alanlarý giriniz" DisplayMode="BulletList" /></td>
+                        <td><ajaxToolkit:RoundedCornersExtender ID="RoundedPanelCriteria" runat="server" TargetControlID="searchCriteriaPanel" Color="Black" BorderColor="Black" Corners="All"></ajaxToolkit:RoundedCornersExtender></td>
                     </tr>
                 </table>
+                </asp:Panel>
                 
                 
                 <asp:Panel ID="searchResultsPanel" runat="server" Visible="false">
