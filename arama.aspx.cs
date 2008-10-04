@@ -181,6 +181,13 @@ public partial class arama : System.Web.UI.Page
             }
         }
     }
+    protected void searchCriteriaLink_Clicked(object sender, EventArgs e)
+    {
+        searchCriteriaPanel.Visible = true;
+        searchResultsPanel.Visible = false;
+        searchCriteriaLink.Visible = false;
+    }
+
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         
@@ -265,8 +272,8 @@ public partial class arama : System.Web.UI.Page
             searchResultsView.DataSource = sqlDataSource;
             searchResultsView.DataBind();
             searchResultsPanel.Visible = true;
-
-           
+            searchCriteriaPanel.Visible = false;
+            searchCriteriaLink.Visible = true;
         }
     }
 }
