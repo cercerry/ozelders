@@ -17,7 +17,7 @@
                     <table>
                         <tr>
                             <td>
-                                <asp:LinkButton ID="linkButtonProfil" runat="server">Profil</asp:LinkButton>
+                                <asp:LinkButton ID="linkButtonProfil" runat="server">Profilim nasýl görünüyor?</asp:LinkButton>
                             </td>
                         </tr>
                         <tr>
@@ -58,7 +58,7 @@
       </table>
       <table>
         <tr>
-            <td>
+            <td style="width: 337px">
                 <asp:Panel ID="panelProfil" runat="server">
                     <table align="left">
                         <tr>
@@ -183,28 +183,28 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 337px">
                 <asp:Panel ID="panelProfilGuncelle" runat="server">
                 
                 </asp:Panel> 
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 337px">
                 <asp:Panel ID="panelIlanlarim" runat="server">
                 
                 </asp:Panel>
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 337px">
                 <asp:Panel ID="panelMesajKutusu" runat="server">
                 
                 </asp:Panel>
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 337px">
                 <ajaxToolkit:RoundedCornersExtender ID="roundedCornersMenuPanel" runat="server" TargetControlID="panelMenu" Color="Gray" BorderColor="Gray"></ajaxToolkit:RoundedCornersExtender>
                 <ajaxToolkit:RoundedCornersExtender ID="roundedCornersImagePanel" runat="server" TargetControlID="panelImage" Color="Gray" BorderColor="Gray"></ajaxToolkit:RoundedCornersExtender>
                 <ajaxToolkit:RoundedCornersExtender ID="RoundedCornersProfilPanel" runat="server" TargetControlID="panelIlanlarim" Color="Gray" BorderColor="Gray"></ajaxToolkit:RoundedCornersExtender>
