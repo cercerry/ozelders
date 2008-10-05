@@ -121,7 +121,7 @@ public partial class arama : System.Web.UI.Page
         string connectionString = System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
         SqlConnection conn = new SqlConnection(connectionString);
         SqlDataReader reader = null;
-        bool hasVillage=false;
+        
         try
         {
             conn.Open();
@@ -131,12 +131,8 @@ public partial class arama : System.Web.UI.Page
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                hasVillage = true;
+                
                 ddVillage.Items.Add(reader[0].ToString());
-            }
-            if (!hasVillage)
-            {
-                ddVillage.Items.Add("Merkez");
             }
         }
         finally

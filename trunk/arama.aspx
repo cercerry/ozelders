@@ -15,6 +15,8 @@
 	        <div>
 	            <asp:LinkButton ID="searchCriteriaLink" runat="server" Visible="false" Text="Arama Kriterleri" ForeColor="red" OnClick="searchCriteriaLink_Clicked"></asp:LinkButton>
 	        </div>
+	        <br />
+	        <br />
 	        <asp:Panel ID="searchCriteriaPanel" runat="server" >
 	            <table cellspacing="15" style="width: 577px">
                     <tr>
@@ -90,11 +92,15 @@
                             </asp:GridView>
                             </td>
                             <td style="width: 187px"><ajaxToolkit:HoverMenuExtender ID="hoverMenu" runat="server" TargetControlID="searchResultsView" PopDelay="25" PopupControlID="panelPopup" HoverCssClass="popupHover" PopupPosition="Left"></ajaxToolkit:HoverMenuExtender></td>
-                            <td><asp:Panel ID="panelPopup" runat="server" BorderStyle="Solid" BorderWidth="1px" Height="100px" Width="100px" CssClass="popupMenu">
+                            <td>
+                                <asp:Panel ID="panelPopup" runat="server" BorderStyle="Solid" BorderWidth="1px" Height="100px" Width="100px" CssClass="popupMenu">
                                 <asp:Label ID="label1" runat="server" Text="bastým"></asp:Label>
-                                </asp:Panel></td>
+                                </asp:Panel>
+                             </td>
                         </tr>
                     </table>
+                    <br />
+                    <ajaxToolkit:RoundedCornersExtender ID="RoundedPanelSearchResults" runat="server" TargetControlID="searchResultsPanel" Color="Black" BorderColor="Black" Corners="All"></ajaxToolkit:RoundedCornersExtender>
                 </asp:Panel> 
             </ContentTemplate>    
         </ajax:UpdatePanel>   
