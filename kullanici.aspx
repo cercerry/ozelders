@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/kullaniciMasterPage.master" AutoEventWireup="true" CodeFile="kullanici.aspx.cs" Inherits="kullanici" Title="Untitled Page" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="kullanici.aspx.cs" Inherits="kullanici" Title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
 <div>

@@ -15,11 +15,29 @@ public partial class profile : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        FillPanelKisiselBilgi();
-        FillPanelDersler();
-        FillPanelOzelDersBilgiVeTanitim();
+        if(!Page.IsPostBack)
+        {
+            FillPanelKisiselBilgi();
+            FillPanelDersler();
+            FillPanelOzelDersBilgiVeTanitim();
+        }
     }
 
+    protected void MakeContact_Click(object sender, EventArgs e)
+    {
+        divProfile.Visible = false;
+        divMessage.Visible = true;
+        btnSendMessageUp.Visible = false;
+    }
+    protected void SendMessage_Click(object sender, EventArgs e)
+    {
+        panelSendMessage.Visible = false;
+        PanelSuccessSending.Visible = true;
+    }
+    protected void lnkbtnProfile_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("profile.aspx?id=" + Request.QueryString["id"]);
+    }
 
     private void FillPanelKisiselBilgi()
     {

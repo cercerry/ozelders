@@ -15,9 +15,9 @@ public partial class arama : System.Web.UI.Page
 {
     
     protected void Page_Load(object sender, EventArgs e)
-    {   
+    {
         if (!Page.IsPostBack)
-        {   
+        {
             FillDDCityList();
             FillDDCourseCategory();
             FillDDUniversity();
@@ -26,16 +26,7 @@ public partial class arama : System.Web.UI.Page
             ddCourseTopic.Items.Add("Tüm Konular");
         }
     }
-    protected void Page_PreInit(object sender, EventArgs e)
-    {
-        if ((PreviousPage != null) && (PreviousPage.IsCrossPagePostBack))
-        {
-            if (PreviousPage.Master.FindControl("hiddenUserName")!=null)
-            {
-                this.MasterPageFile = "~/kullaniciMasterPage.master";
-            }
-        }
-    }
+   
 
 
     private void FillDDCityList()
@@ -129,6 +120,8 @@ public partial class arama : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand(command,conn);
             
             reader = cmd.ExecuteReader();
+
+            ddVillage.Items.Insert(0, "Tüm ilçeler");
             while (reader.Read())
             {
                 
@@ -192,7 +185,7 @@ public partial class arama : System.Web.UI.Page
             bool firstCheckbox = true;
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.Append("SELECT DISTINCT isOurs,gender,name,surname,UniversityName FROM KisiselBilgi as KB INNER JOIN "); //KiþiselBilgi.db
+            sb.Append("SELECT DISTINCT isOurs,isSurnameDisplayed,gender,KB.userId,name,surname,UniversityName,Profession,VillageName,CityName FROM KisiselBilgi as KB INNER JOIN "); //KiþiselBilgi.db
             sb.Append("Universiteler as U ON KB.UniversityId=U.UniversityId INNER JOIN "); //Universiteler.db
             sb.Append("Sehirler as S ON KB.CityId=S.CityId INNER JOIN "); //Sehirler.db
             sb.Append("Ilceler as I ON KB.VillageId=I.VillageId INNER JOIN "); //Ilceler.db
@@ -202,7 +195,14 @@ public partial class arama : System.Web.UI.Page
             sb.Append("DersKonu as Dko ON KD.TopicId=Dko.TopicId INNER JOIN "); // DersKonu.db
             sb.Append("[Kullanici-DersYeri] as KDY ON K.userId=KDY.userId "); // Kullanici-DersYeri.db
             sb.Append("WHERE CityName='" + ddCity.SelectedValue + "' AND "); // cityName
-            sb.Append("VillageName='" + ddVillage.SelectedValue + "' AND ");  // villageName  
+            if (ddVillage.SelectedIndex == 0)
+            {
+                // Tüm ilçeler
+            }
+            else
+            {
+                sb.Append("VillageName='" + ddVillage.SelectedValue + "' AND ");  // villageName
+            }
             sb.Append("CategoryName='" + ddCourseCategory.SelectedValue + "' AND "); // courseCategory
             if (ddCourseTopic.SelectedIndex == 0)  
             {
@@ -264,9 +264,74 @@ public partial class arama : System.Web.UI.Page
 
             string connectionString = System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
             string command = sb.ToString();
-            SqlDataSource sqlDataSource = new SqlDataSource("System.Data.SqlClient", connectionString, command);
-            searchResultsView.DataSource = sqlDataSource;
+            
+            
+            //SqlDataSource sqlDataSource = new SqlDataSource("System.Data.SqlClient", connectionString, command);
+            //searchResultsView.DataSource = sqlDataSource;
+           // searchResultsView.DataBind();
+            SqlConnection conn=new SqlConnection(connectionString);
+            SqlDataReader reader=null;
+            DataTable table = new DataTable();
+            DataColumn column;
+            column=new DataColumn("name");
+            table.Columns.Add(column);
+            column=new DataColumn("VillageName");
+            table.Columns.Add(column);
+            column=new DataColumn("Profession");
+            table.Columns.Add(column);
+            column=new DataColumn("UniversityName");
+            table.Columns.Add(column);
+            column = new DataColumn("gender");
+            table.Columns.Add(column);
+            column = new DataColumn("userId");
+            table.Columns.Add(column);
+            
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(command, conn);
+                reader = cmd.ExecuteReader();
+                
+                while (reader.Read())
+                {
+                    DataRow row;
+                    row = table.NewRow();
+                    if (reader["gender"].ToString() == "1")
+                    {
+                        row["gender"] = "images/hoca1.png";
+                    }
+                    else
+                    {
+                        row["gender"] = "images/hoca2.png";
+                    }
+                    if(reader["isSurnameDisplayed"].ToString()=="0"){
+                        row["name"] = reader["name"].ToString() + " " + reader["surname"].ToString()[0] + ".";
+                    }
+                    else{
+                        row["name"] = reader["name"].ToString() + " " + reader["surname"].ToString();
+                    }
+                    row["VillageName"] = reader["VillageName"].ToString();
+                    row["Profession"] = reader["Profession"].ToString();
+                    row["UniversityName"] = reader["UniversityName"].ToString();
+                    row["userId"] = reader["userId"].ToString();
+                    table.Rows.Add(row);
+                }
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+           
+            searchResultsView.DataSource = table;
             searchResultsView.DataBind();
+            
             searchResultsPanel.Visible = true;
             searchCriteriaPanel.Visible = false;
             searchCriteriaLink.Visible = true;

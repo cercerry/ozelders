@@ -15,14 +15,4 @@ public partial class Default2 : System.Web.UI.Page
     {
 
     }
-    protected void Page_PreInit(object sender, EventArgs e)
-    {
-        if ((PreviousPage != null) && (PreviousPage.IsCrossPagePostBack))
-        {
-            if (PreviousPage.Master.FindControl("hiddenUserName")!=null)
-            {
-                this.MasterPageFile = "~/kullaniciMasterPage.master";
-            }
-        }
-    }
 }

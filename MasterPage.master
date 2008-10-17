@@ -367,60 +367,42 @@ hr {
 		            <table>
 		                <tr>
 		                    <td>
-		                        <ul>
-		                            <li>
-		                                Kullanici adı:
-		                            </li>
-		                        </ul>
-		                    </td>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                <asp:TextBox ID="txtUserName" runat="server"  Width="101px"></asp:TextBox>             
-		                            </li>
-		                        </ul>
-		                    </td>
-		                </tr>
-		                <tr>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                Şifre:
-		                            </li>
-		                        </ul>
-		                    </td>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                <asp:TextBox ID="txtPassword" runat="server"  Width="102px" TextMode="Password"></asp:TextBox>                
-		                            </li>
-		                        </ul>
-		                    </td>
-		                </tr>
-		                <tr>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                <asp:Button ID="btnSignIn" Text="Giriş" runat="server" Width="62px" 
-                                            onclick="btnSignIn_Click" PostBackUrl="~/kullanici.aspx"/>                
-		                            </li>
-		                        </ul>
-		                    </td>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                <asp:Label ID="hataLabel" runat="server" ForeColor="Red"></asp:Label>
-		                            </li>
-		                        </ul>
-		                    </td>
-		                </tr>
-		                <tr>
-		                    <td>
-		                        <ul>
-		                            <li>
-		                                <a href="kayit.aspx">Yeni Öğretmen</a>           
-		                            </li>
-		                        </ul>
+		                        <asp:LoginView ID="LoginView1" runat="server">
+                    
+                                    <LoggedInTemplate>
+                                        <table>
+                                            <tr style="height:20px">
+                                                <td>Merhaba</td>
+                                            </tr>
+                                            <tr style="height:20px">
+                                                
+                                                <td align="center" style="width: 121px; height: 20px;">
+                                                    <asp:LoginName ID="LoginName1" runat="server" Height="20px" Width="94px"  />
+                                                </td>
+                                            </tr>
+                                            <tr style="height:15px">
+                                            
+                                            </tr>
+                                            <tr>
+                                                <td style="height: 20px">
+                                                    <asp:LinkButton ID="myProfile" runat="server" Text="Üyelik Sayfam" ForeColor="Red" OnClick="myProfile_Click" ></asp:LinkButton>
+                                                </td>
+                                            </tr>
+                                            <tr style="height:20px">
+                                                <td style="width: 121px">
+                                                    <asp:LoginStatus ID="LoginStatus1" runat="server" ForeColor="Red" LogoutAction="Redirect" Width="55px" LogoutPageUrl="~/Default.aspx" LogoutText="Çıkış"   />
+                                                </td>
+                                            </tr>
+                                        </table>   
+                                    </LoggedInTemplate>
+                                    <AnonymousTemplate>
+                                        <asp:Login ID="Login1" runat="server" Style="z-index: 100; " CreateUserText="Yeni Öğretmen" CreateUserUrl="~/register.aspx" DisplayRememberMe="False" FailureText="Hatalı kullanıcı adı ya da şifre girdiniz.Tekrar deneyin." LoginButtonText="Giriş" PasswordLabelText="Şifre :" PasswordRequiredErrorMessage="Şifre giriniz." TitleText="" UserNameLabelText="Kullanıcı Adı :" UserNameRequiredErrorMessage="Kullanıcı adı giriniz." DestinationPageUrl="~/kullanici.aspx" Height="140px" Width="175px">
+                                            <TextBoxStyle Width="80px" />
+                                            <LoginButtonStyle Width="50px" />
+                                            <HyperLinkStyle ForeColor="Red" />
+                                        </asp:Login>
+                                    </AnonymousTemplate>
+                                </asp:LoginView>
 		                    </td>
 		                </tr>
 		            </table>
