@@ -290,6 +290,13 @@ public partial class kayit : System.Web.UI.Page
     protected void ddCity_SelectedIndexChanged(object sender, EventArgs e)
     {
         ddVillage.Items.Clear();
+        
+        // bir tane metod yap parametre olarak sql command stringi alan 
+        // bu metod Sqlreader dondursun
+        // Metod icinde connection ac, reader ac, parametre olarak metoda geleni al.
+        // ve metod icinde acik kalan connectionlarý reader  larý kapa
+        // her yerde ayný kodu yazmana gerek kalmaz böylece.
+
         string connectionString = System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
         SqlConnection conn = new SqlConnection(connectionString);
         SqlDataReader reader = null;
