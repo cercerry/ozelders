@@ -82,32 +82,90 @@
                     <div>
                         <h2 class="title" >Arama Sonuçlarý</h2>
                     </div>
-                    <table>                       
+                    <table width="100%">                       
                         <tr>
-                            <td>
-                            <asp:GridView ID="searchResultsView" runat="server" AutoGenerateColumns="true"  AllowPaging="True" GridLines="Horizontal" CellSpacing="10" ShowHeader="False">
+                            <td style="width:100%">
+                            <asp:GridView ID="searchResultsView" runat="server"  AllowPaging="True" AutoGenerateColumns="false" GridLines="None" CellSpacing="-1" Width="100%">
                                 <PagerSettings Mode="NextPreviousFirstLast" />
-                                
+                                <Columns>
+                                    <asp:TemplateField>
+                                        <HeaderTemplate>
+                                            <asp:Panel ID="PanelHeader" runat="server" Width="100%">
+                                            <table width="100%">
+                                                <tr>
+                                                    <th style="color:White;width:5%"></th>
+                                                    <th style="color:White;width:20%" align="left" >Ýsim</th>
+                                                    <th style="color:White;width:20%" align="left">Ýlçe</th>
+                                                    <th style="color:White;width:20%" align="left">Meslek</th>
+                                                    <th style="width:35%;color:White" align="left" >Üniversite</th>
+                                                </tr>
+                                            </table>
+                                            </asp:Panel>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <asp:Panel ID="PanelGrid" runat="server" Width="100%">
+                                                <table width="100%" id="tablegrid" runat="server">
+                                                    <tr>
+                                                        <td style="width:5%"><asp:Image ID="img" runat="server"  Height="20px" Width="20px" ImageUrl='<%# Eval("gender") %>' /></td>
+                                                        <td style="width:20%"><a href='profile.aspx?id=<%# Eval("userId") %>' target="_blank" style="color:#4A5157" ><%# Eval("name") %></a></td>
+                                                        <td style="width:20%"><a href='profile.aspx?id=<%# Eval("userId") %>' target="_blank" style="color:#4A5157" ><%# Eval("VillageName") %></a></td>
+                                                        <td style="width:20%"><a href='profile.aspx?id=<%# Eval("userId") %>' target="_blank" style="color:#4A5157" ><%# Eval("Profession") %></a></td>
+                                                        <td style="width:35%"><a href='profile.aspx?id=<%# Eval("userId") %>' target="_blank" style="color:#4A5157" ><%# Eval("UniversityName") %></a></td>
+                                                        
+                                                    </tr>
+                                                </table>
+                                            </asp:Panel>
+                                            <ajaxToolkit:HoverMenuExtender 
+                                                ID="hoverMenu" runat="server" 
+                                                TargetControlID="PanelGrid" PopDelay="25" 
+                                                PopupControlID="panelPopup" HoverCssClass="popupHover" 
+                                                PopupPosition="Left">
+                                            </ajaxToolkit:HoverMenuExtender>
+                                            <asp:Panel ID="panelPopup" runat="server" BorderStyle="Solid" BorderWidth="1px" Height="100px" Width="300px" CssClass="popupMenu">
+                                                <table width="100%" id="bla" runat="server">
+                                                    <tr>
+                                                        <td>Ýsim :</td>
+                                                        <td><%# Eval("name") %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Yaþadýðý yer:</td>
+                                                        <td><%# Eval("VillageName") %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Meslek :</td>
+                                                        <td><%# Eval("Profession") %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Üniversite</td>
+                                                        <td><%# Eval("UniversityName") %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><a href='profile.aspx?id=<%# Eval("userId") %>' target="_blank" >Daha fazla detay ve iletiþim için týklayýnýz</a></td>
+                                                    </tr>
+                                                       
+                                                </table>
+                                            </asp:Panel>
+                                            
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                                <AlternatingRowStyle BackColor="WhiteSmoke" />
                                 
                             </asp:GridView>
                             </td>
-                            <td style="width: 187px"><ajaxToolkit:HoverMenuExtender ID="hoverMenu" runat="server" TargetControlID="searchResultsView" PopDelay="25" PopupControlID="panelPopup" HoverCssClass="popupHover" PopupPosition="Left"></ajaxToolkit:HoverMenuExtender></td>
-                            <td>
-                                <asp:Panel ID="panelPopup" runat="server" BorderStyle="Solid" BorderWidth="1px" Height="100px" Width="100px" CssClass="popupMenu">
-                                <asp:Label ID="label1" runat="server" Text="bastým"></asp:Label>
-                                </asp:Panel>
-                             </td>
                         </tr>
-                    </table>
+                      </table>
+                      
                     <br />
                     <ajaxToolkit:RoundedCornersExtender ID="RoundedPanelSearchResults" runat="server" TargetControlID="searchResultsPanel" Color="Black" BorderColor="Black" Corners="All"></ajaxToolkit:RoundedCornersExtender>
+                    
                 </asp:Panel> 
             </ContentTemplate>    
         </ajax:UpdatePanel>   
     </div>
 </div>
 			
-			
+		
 
 
 </asp:Content>

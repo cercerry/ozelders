@@ -21,23 +21,7 @@
 					    <tr>
 					        <th colspan="5" style="height:25px ;color:White" >(1/2) Kullanýcý Bilgileri</th>
 					    </tr>
-					    <tr >
-					        <td>*Kullanýcý Adý : </td> 
-					        <td style="width: 175px"><asp:TextBox ID="txtUserName" runat="server"> </asp:TextBox></td>
-					        <td> <asp:RequiredFieldValidator ID="userNameValidator" runat="server" ErrorMessage="Kullanýcý Adýný Giriniz.." ControlToValidate="txtUserName" ValidationGroup="signUp"></asp:RequiredFieldValidator> </td>
-					        
-					    </tr>
-					    <tr>
-					        <td>*Þifre : </td> 
-					        <td style="width: 175px"><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="147px"></asp:TextBox></td>
-					        <td> <asp:RequiredFieldValidator ID="passwordValidator1" runat="server" ErrorMessage="Þifreyi giriniz.." ControlToValidate="txtPassword" ValidationGroup="signUp" Width="94px" ></asp:RequiredFieldValidator></td>
-					    </tr>
-					    <tr>
-					        <td>*Þifre(tekrar) : </td> 
-					        <td style="width: 175px"><asp:TextBox ID="txtPassword2" runat="server" TextMode="Password" Width="148px"></asp:TextBox></td>
-					        <td> <asp:RequiredFieldValidator ID="passwordValidator2" runat="server" ErrorMessage="Þifreyi giriniz.." ControlToValidate="txtPassword2" ValidationGroup="signUp" ></asp:RequiredFieldValidator></td>
-					        <td colspan="2"> <asp:CompareValidator ID="compareValidator" runat="server" ErrorMessage="Girdiðiniz þifreler tutarsýz.." ControlToCompare="txtPassword" ControlToValidate="txtPassword2" ValidationGroup="signUp" Width="69px"></asp:CompareValidator></td>
-					    </tr>
+					    
 					    <tr>
 					        <td>*Ad : </td> 
 					        <td style="width: 175px"><asp:TextBox ID="txtName" runat="server" > </asp:TextBox></td>
@@ -56,7 +40,7 @@
 					        <td style="height: 36px">*Doðum Tarihi : </td> 
 					        <td style="width: 175px; height: 36px;"><asp:TextBox ID="txtBirthdate" runat="server" > </asp:TextBox></td>
 					        <td style="height: 36px"> <asp:RequiredFieldValidator ID="birthdateValidator" runat="server" ErrorMessage="Doðum Tarihinizi giriniz.." ControlToValidate="txtBirthdate" ValidationGroup="signUp" Width="166px" ></asp:RequiredFieldValidator></td>
-					        <td colspan="2" style="height: 36px"><asp:RegularExpressionValidator ID="birthdateRegValidator" runat="server" ErrorMessage="Geçerli bir tarih giriniz.." ControlToValidate="txtBirthdate" ValidationGroup="signUp" ValidationExpression="\d{1,2}\.\d{1,2}\.\d{4}" ></asp:RegularExpressionValidator></td>
+					        <td colspan="2" style="height: 36px"><asp:RegularExpressionValidator ID="birthdateRegValidator" runat="server" ErrorMessage="Geçerli bir tarih giriniz.." ControlToValidate="txtBirthdate" ValidationGroup="signUp" ValidationExpression="\d{1,2}\.\d{1,2}\.\d{4}" Width="105px" ></asp:RegularExpressionValidator></td>
 					        
 					    </tr>
 					    <tr>
@@ -69,12 +53,7 @@
                             <td><asp:RequiredFieldValidator ID="genderValidator" runat="server" ControlToValidate="ddGender" ErrorMessage="Cinsiyetinizi seçiniz.." ValidationGroup="signUp" ></asp:RequiredFieldValidator></td>
                              
 					    </tr>
-					    <tr>
-					        <td>*Email : </td> 
-					        <td style="width: 175px"><asp:TextBox ID="txtEmail" runat="server"> </asp:TextBox></td>
-					        <td><asp:RequiredFieldValidator ID="emailValidator" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email adresinizi giriniz.." ValidationGroup="signUp" ></asp:RequiredFieldValidator></td>
-					        <td colspan="2"><asp:RegularExpressionValidator ID="emailRegValidator"  ControlToValidate="txtEmail" ValidationExpression='^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$' ValidationGroup="signUp" runat="server" ErrorMessage="Geçerli bir mail adresi giriniz.."></asp:RegularExpressionValidator></td>
-					    </tr>
+					    
 					    <tr>
 					        <td>Telefon : </td> 
 					        <td style="width: 175px"><asp:TextBox ID="txtPhoneNo" runat="server"> </asp:TextBox></td>
@@ -90,7 +69,7 @@
 					    <tr>
 					        <td></td>
 					        <td> <asp:Button ID="btnSignUp" runat="server" Text="Kaydet ve Ýlerle" ValidationGroup="signUp" OnClick="btnSignUp_Click" /></td>
-					        <td colspan="1"> <asp:CustomValidator ID="userNameCustomValdator" runat="server" ControlToValidate="txtUserName"  ErrorMessage="Girdiðiniz kullanýcý adý kullanýlýyor ya da geçersiz" ValidationGroup="signUp" OnServerValidate="userNameValidation"></asp:CustomValidator></td>
+					        
 					        
 					    </tr>
 					    

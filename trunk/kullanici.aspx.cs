@@ -15,11 +15,7 @@ public partial class kullanici : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((PreviousPage != null) && (PreviousPage.IsCrossPagePostBack))
-        {
-            TextBox tmpUserName = (TextBox)PreviousPage.Master.FindControl("txtUserName");
-            hiddenUserName.Value = tmpUserName.Text; ; 
-        }
+        
         
         string connectionString = System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
         SqlConnection connection = new SqlConnection(connectionString);
@@ -31,7 +27,7 @@ public partial class kullanici : System.Web.UI.Page
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                if (reader["username"].ToString() == hiddenUserName.Value)
+                if (reader["username"].ToString() == User.Identity.Name)
                 {
                     if (reader["gender"].ToString() == "2")     ////////
                         imageBayanResim.Visible = true;         // Image

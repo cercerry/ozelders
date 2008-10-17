@@ -37,6 +37,7 @@ public partial class kayit : System.Web.UI.Page
         if (Page.IsValid == true)
         {
             InsertOzelDersDetaylari();
+            Response.Redirect("kullanici.aspx");
         }
     }
 
@@ -50,25 +51,26 @@ public partial class kayit : System.Web.UI.Page
             {
                 connection.Open();
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append("INSERT INTO Kayit VALUES(");
-                sb.Append("'" + txtUserName.Text + "',");
-                sb.Append("'" + txtPassword.Text + "',");
-                sb.Append("'" + txtName.Text + "',");
-                sb.Append("'" + txtSurname.Text + "',");
-                sb.Append("'" + txtBirthdate.Text + "',");
-                sb.Append("'" + txtEmail.Text + "',");
-                sb.Append("'" + txtPhoneNo.Text + "',");
-                sb.Append("'" + txtAdress.Text + "',");
-                sb.Append("'" + ddGender.SelectedIndex + "',");
+                sb.Append("UPDATE Kayit ");
+                
+                sb.Append("SET name='" + txtName.Text + "', ");
+                sb.Append("surname='" + txtSurname.Text + "', ");
+                sb.Append("birthdate='" + txtBirthdate.Text + "',");
+                
+                sb.Append("phoneNo='" + txtPhoneNo.Text + "', ");
+                sb.Append("address='" + txtAdress.Text + "', ");
+                sb.Append("gender='" + ddGender.SelectedIndex + "', ");
 
                 if (checkBoxIsSurname.Checked == true)
-                    sb.Append("'1',");
+                    sb.Append("isSurnameDisplayed='1', ");
                 else
-                    sb.Append("'0',");
+                    sb.Append("isSurnameDisplayed='0', ");
                 if (checkBoxIsPhone.Checked == true)
-                    sb.Append("'1')");
+                    sb.Append("isPhoneDisplayed='1' ");
                 else
-                    sb.Append("'0')");
+                    sb.Append("isPhoneDisplayed='0' ");
+
+                sb.Append("WHERE userName='" + User.Identity.Name + "'");
 
                 SqlCommand cmd = new SqlCommand(sb.ToString(), connection);
 
@@ -93,7 +95,7 @@ public partial class kayit : System.Web.UI.Page
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             sb.Append("DECLARE @userId INT , @CityId INT , @VillageId INT ,@UniId INT ");
-            sb.Append("SET @userId = (SELECT userId FROM Kayit WHERE userName='"+txtUserName.Text+"') ");
+            sb.Append("SET @userId = (SELECT userId FROM Kayit WHERE userName='"+User.Identity.Name+"') ");
             sb.Append("SET @CityId= (SELECT CityId FROM Sehirler WHERE CityName='"+ddCity.SelectedValue+"') ");
             sb.Append("SET @VillageId=(SELECT VillageId FROM Ilceler WHERE VillageName='"+ddVillage.SelectedValue+"' AND CityId=@CityId) ");
             sb.Append("SET @UniId=(SELECT UniversityId FROM Universiteler WHERE UniversityName='"+ddUniversity.SelectedValue+"') ");
@@ -124,7 +126,7 @@ public partial class kayit : System.Web.UI.Page
             connection.Open();
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             sb.Append("DECLARE @userId INT ");
-            sb.Append("SET @userId = (SELECT userId FROM Kayit WHERE userName='" + txtUserName.Text + "') ");
+            sb.Append("SET @userId = (SELECT userId FROM Kayit WHERE userName='" + User.Identity.Name + "') ");
             string command = sb.ToString();
             if (checkBoxOgretmen.Checked == true)
             {
@@ -158,7 +160,7 @@ public partial class kayit : System.Web.UI.Page
                     connection.Open();
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append("DECLARE @userId INT, @CategoryId INT , @TopicId INT ");
-                    sb.Append("SET @userId = (SELECT userId FROM Kayit WHERE userName='" + txtUserName.Text + "') ");
+                    sb.Append("SET @userId = (SELECT userId FROM Kayit WHERE userName='" + User.Identity.Name + "') ");
                     sb.Append("SET @CategoryId = (SELECT CategoryId FROM DersKategori WHERE CategoryName='" + listBoxSelectedDersler.Items[i].Value.Split("--".ToCharArray())[0] + "') ");
                     sb.Append("SET @TopicId = (SELECT TopicId FROM DersKonu WHERE TopicName='" + listBoxSelectedDersler.Items[i].Value.Split("--".ToCharArray())[2] + "' AND CategoryId=@CategoryId) ");
                     sb.Append("INSERT INTO [Kullanici-Ders] VALUES(@userId,@CategoryId,@TopicId)");
@@ -177,43 +179,7 @@ public partial class kayit : System.Web.UI.Page
 
     }   
 
-    protected void userNameValidation(object sender, ServerValidateEventArgs e)
-    {
-        string connectionString = System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
-        SqlConnection conn = new SqlConnection(connectionString);
-        SqlDataReader reader = null;
-        string id=null;
-        try
-        {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT userId FROM Kayit WHERE userName='" + txtUserName.Text + "'", conn);
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                id = reader[0].ToString();
-            }
-        }
-        finally
-        {
-            if (id == null && e.Value.Length>4)
-            {
-                e.IsValid = true;
-            }
-            else
-            {
-                e.IsValid = false;
-            }
-            if (conn != null)
-            {
-                conn.Close();
-            }
-            if (reader != null)
-            {
-                reader.Close();
-            }
-        }
-       
-    }
+    
 
     private void FillDDCityList()
     {
