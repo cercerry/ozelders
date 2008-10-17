@@ -185,9 +185,9 @@ public partial class kayit : System.Web.UI.Page
     {
 
         string connectionString = System.Configuration.ConfigurationManager.AppSettings["DatabaseConnectionString"].ToString();
-        string command = "SELECT CityName FROM Sehirler";
+        string command = "SELECT CityName FROM Sehirler"; // neden sadece CityName alýyoruz. CityId'yi de alalým.
         SqlDataSource sqlDataSource = new SqlDataSource("System.Data.SqlClient", connectionString, command);
-        ddCity.DataValueField = "CityName";
+        ddCity.DataValueField = "CityName"; // Value olarak City idyi kullanalým. Ondan sonra line 97 deki selecti yapmamýza gerek kalmayacak.
         ddCity.DataTextField = "CityName";
         ddCity.DataSource = sqlDataSource;
         ddCity.DataBind();
