@@ -18,7 +18,7 @@ namespace WorkOrder
         }
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            WorkOrderEntities1 db = new WorkOrderEntities1();
+            WorkOrderEntities db = new WorkOrderEntities();
             
             //Girilen bilgilere göre istedğimiz kullanıcıyı buluyoruz
             var NewEmployee = from emp in db.Employee
