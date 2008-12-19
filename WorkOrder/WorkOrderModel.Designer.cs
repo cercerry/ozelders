@@ -22,31 +22,31 @@ namespace WorkOrder
 {
     
     /// <summary>
-    /// There are no comments for WorkOrderEntities1 in the schema.
+    /// There are no comments for WorkOrderEntities in the schema.
     /// </summary>
-    public partial class WorkOrderEntities1 : global::System.Data.Objects.ObjectContext
+    public partial class WorkOrderEntities : global::System.Data.Objects.ObjectContext
     {
         /// <summary>
-        /// Initializes a new WorkOrderEntities1 object using the connection string found in the 'WorkOrderEntities1' section of the application configuration file.
+        /// Initializes a new WorkOrderEntities object using the connection string found in the 'WorkOrderEntities' section of the application configuration file.
         /// </summary>
-        public WorkOrderEntities1() : 
-                base("name=WorkOrderEntities1", "WorkOrderEntities1")
+        public WorkOrderEntities() : 
+                base("name=WorkOrderEntities", "WorkOrderEntities")
         {
             this.OnContextCreated();
         }
         /// <summary>
-        /// Initialize a new WorkOrderEntities1 object.
+        /// Initialize a new WorkOrderEntities object.
         /// </summary>
-        public WorkOrderEntities1(string connectionString) : 
-                base(connectionString, "WorkOrderEntities1")
+        public WorkOrderEntities(string connectionString) : 
+                base(connectionString, "WorkOrderEntities")
         {
             this.OnContextCreated();
         }
         /// <summary>
-        /// Initialize a new WorkOrderEntities1 object.
+        /// Initialize a new WorkOrderEntities object.
         /// </summary>
-        public WorkOrderEntities1(global::System.Data.EntityClient.EntityConnection connection) : 
-                base(connection, "WorkOrderEntities1")
+        public WorkOrderEntities(global::System.Data.EntityClient.EntityConnection connection) : 
+                base(connection, "WorkOrderEntities")
         {
             this.OnContextCreated();
         }
