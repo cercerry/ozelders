@@ -1,0 +1,11 @@
+D:\Documents and Settings\Administrator\Belgelerim\Visual Studio 2008\Projects\WorkOrder\WorkOrder\bin\Debug\WorkOrder.exe.config
+D:\Documents and Settings\Administrator\Belgelerim\Visual Studio 2008\Projects\WorkOrder\WorkOrder\obj\Debug\ResolveAssemblyReference.cache
+D:\Documents and Settings\Administrator\Belgelerim\Visual Studio 2008\Projects\WorkOrder\WorkOrder\obj\Debug\WorkOrder.Form1.resources
+D:\Documents and Settings\Administrator\Belgelerim\Visual Studio 2008\Projects\WorkOrder\WorkOrder\obj\Debug\WorkOrder.Properties.Resources.resources
+D:\Documents and Settings\Administrator\Belgelerim\Visual Studio 2008\Projects\WorkOrder\WorkOrder\obj\Debug\WorkOrder.csproj.GenerateResource.Cache
+D:\Documents and Settings\Administrator\Belgelerim\Visual Studio 2008\Projects\WorkOrder\WorkOrder\bin\Debug\WorkOrder.exe
+D:\Documents and Settings\Administrator\Belgelerim\Visual Studio 2008\Projects\WorkOrder\WorkOrder\bin\Debug\WorkOrder.pdb
+D:\Documents and Settings\Administrator\Belgelerim\Visual Studio 2008\Projects\WorkOrder\WorkOrder\obj\Debug\WorkOrder.exe
+D:\Documents and Settings\Administrator\Belgelerim\Visual Studio 2008\Projects\WorkOrder\WorkOrder\obj\Debug\WorkOrder.pdb
+D:\Documents and Settings\Administrator\Belgelerim\Visual Studio 2008\Projects\WorkOrder\WorkOrder\obj\Debug\WorkOrder.NewOrder.resources
+D:\Documents and Settings\Administrator\Belgelerim\Visual Studio 2008\Projects\WorkOrder\WorkOrder\obj\Debug\WorkOrder.UserEnter.resources
